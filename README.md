@@ -1,17 +1,13 @@
-# IoT Data Integration: Greenhouse Scenario
+# Greenhouse IoT Project
 
-This repository contains the source data for your class project.
+This repo is for my class project about combining data from 3 different devices in a greenhouse. All the data is from July 15, 2026.
 
-## What's here
+## Files
 
-The `source-data` folder contains three data files collected by devices in this deployment:
+The original data is in the `source-data` folder:
 
-- `batch102.csv`
-- `stream102.json`
-- `feed102.xml`
+- `batch102.csv` - soil moisture and soil temp from sensors in the 5 beds, every 2 hours
+- `feed102.xml` - air temp, humidity and wind from a weather station, every 10 minutes
+- `stream102.json` - the watering log, which only records while the pump is on
 
-Part of your work is figuring out what each file contains and how it was produced.
-
-## Before you submit
-
-Replace this README with your own. Your README should explain your repository to someone seeing it for the first time.
+My answers for Data Pipeline Check #1 are in `ANSWERS.md`.
