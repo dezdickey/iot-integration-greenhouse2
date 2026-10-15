@@ -68,3 +68,38 @@ It only writes data while it's watering, every 5 minutes, then one "off" line an
 
 7. Advantages and disadvantages of this format**
 It's short and the numbers are real numbers. But there are no units except in the name flowRateGpm, and when the pump is off there's no data at all.
+
+# Checkpoint 2 - New Requirements
+
+## Soil sensors now report battery level
+
+1. Which file does it go in?**
+batch102.csv. The battery is in the soil sensors, and this is the file where every row has a SensorID, so each reading can have its own battery level.
+
+2. What did I name the field?**
+BatteryLevel_Pct. I put the unit at the end of the name like SoilTemp_F, because this file only shows units in the column names.
+
+3. How did I add it?**
+I added BatteryLevel_Pct as a new column at the end of the header row, then put an extra comma at the end of all 120 rows so the value is blank.
+
+## The weather station now tracks sunlight
+
+1. Which file does it go in?**
+feed102.xml. The weather station WS-01 makes this file, and it already records outside conditions every 10 minutes.
+
+2. What did I name the field?**
+sunlight. It's camelCase like airTemperature and windSpeed, and the unit goes inside the tag (unit="lux") like the other values.
+
+3. How did I add it?**
+I added an empty sunlight tag, <sunlight unit="lux"></sunlight>, right after windSpeed in all 144 observations.
+
+## The water controller now records automatic or manual
+
+1. Which file does it go in?**
+stream102.json. This is the watering pump's log, and it already has pumpStatus, so how the pump got turned on fits here.
+
+2. What did I name the field?**
+activationMode. It's camelCase like flowRateGpm and pumpStatus. Later it would be the word "auto" or "manual", the same way pumpStatus is "on" or "off".
+
+3. How did I add it?**
+I added "activationMode": null after pumpStatus in all 38 records. I used null because that's how JSON shows an empty value.
